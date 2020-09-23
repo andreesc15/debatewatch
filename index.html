@@ -9,11 +9,6 @@
 <body>
 	<script>
 	document.body.style.backgroundColor = "#333333";
-	curr = document.getElementsByClassName("button");
-	
-	for (var i = 0; i < curr.length; i++) {
-    	curr[i].style.color = "#330033";
-	}
 	</script>
 
 <nav class="controls">
@@ -81,6 +76,12 @@
 	  
 	if(this.times[0] == 1) {
 		document.body.style.backgroundColor = "#FDFD96";
+	}
+	else if(this.times[0] == 6) {
+		document.body.style.backgroundColor = "FF6961";
+	}
+	else if(this.times[0] == 7) {
+		document.body.style.backgroundColor = "73343A";
 	}
     }
     
