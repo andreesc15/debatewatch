@@ -38,13 +38,6 @@
         }
     }
     
-    lap() {
-        let times = this.times;
-        let li = document.createElement('li');
-        li.innerText = this.format(times);
-        this.results.appendChild(li);
-    }
-    
     stop() {
         this.running = false;
         this.time = null;
@@ -53,10 +46,6 @@
     restart() {
         this.reset();
 	requestAnimationFrame(this.step.bind(this));
-    }
-    
-    clear() {
-        clearChildren(this.results);
     }
     
     step(timestamp) {
@@ -90,8 +79,7 @@
     format(times) {
         return `\
 ${pad0(times[0], 2)}:\
-${pad0(times[1], 2)}:\
-${pad0(Math.floor(times[2]), 2)}`;
+${pad0(times[1], 2)}`;
     }
 }
 
