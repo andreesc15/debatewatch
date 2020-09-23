@@ -19,6 +19,9 @@
 		<div class="stopwatch"></div>
 		<ul class="results"></ul>
 <script>
+	
+	var notification = new Audio("https://themushroomkingdom.net/sounds/wav/smw/smw_coin.wav");
+	
 	class Stopwatch {
     constructor(display, results) {
         this.running = false;
@@ -76,12 +79,15 @@
 	  
 	if(this.times[0] == 1) {
 		document.body.style.backgroundColor = "#0A5807";
+		notification.play();
 	}
-	if(this.times[0] == 6) {
-		document.body.style.backgroundColor = "FF6961";
+	else if(this.times[0] == 6) {
+		document.body.style.backgroundColor = "#FF6961";
+		notification.play();
 	}
-	if(this.times[0] == 7) {
-		document.body.style.backgroundColor = "73343A";
+	else if(this.times[0] == 7) {
+		document.body.style.backgroundColor = "#73343A";
+		notification.play();
 	}
     }
     
