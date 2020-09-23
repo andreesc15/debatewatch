@@ -44,8 +44,7 @@
     }
 
     restart() {
-        this.reset();
-	requestAnimationFrame(this.step.bind(this));
+        location.reload();
     }
     
     step(timestamp) {
