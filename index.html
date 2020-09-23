@@ -20,7 +20,8 @@
 		<ul class="results"></ul>
 <script>
 	
-	var notification = new Audio("https://themushroomkingdom.net/sounds/wav/smw/smw_coin.wav");
+	var notification = new Audio("https://themushroomkingdom.net/sounds/wav/sm64/sm64_coin.wav");
+	var notification2 = new Audio("https://themushroomkingdom.net/sounds/wav/sm64/sm64_blue_coin.wav");
 	var flag1 = true;
 	var flag6 = true;
 	var flag7 = true;
@@ -97,8 +98,7 @@
 	else if(this.times[0] == 7) {
 		document.body.style.backgroundColor = "#73343A";
 		if(flag7) {
-		notification.play();
-		setTimeout(function(){notification.play()}, 100); 
+		notification2.play();
 		flag7 = false;
 		}
 	}
