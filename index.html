@@ -8,7 +8,7 @@
 
 <body>
 	<script>
-	document.body.style.backgroundColor = "#AA0000";
+	document.body.style.backgroundColor = "#333333";
 	</script>
 
 <nav class="controls">
@@ -73,6 +73,10 @@
             this.times[0] += 1;
             this.times[1] -= 60;
         }
+	  
+	if(this.times[0] == 1 && this.times[1] == 0 && this.times[2] == 0) {
+		document.body.style.backgroundColor = "#FDFD96";
+	}
     }
     
     print() {
