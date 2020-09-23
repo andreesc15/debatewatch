@@ -10,7 +10,7 @@
 <nav class="controls">
 			<a href="#" class="button" onClick="stopwatch.start();">Start</a>
 			<a href="#" class="button" onClick="stopwatch.stop();">Stop</a>
-			<a href="#" class="button" onClick="stopwatch.reset();">Reset</a>
+			<a href="#" class="button" onClick="stopwatch.restart();">Reset</a>
 		</nav>
 		<div class="stopwatch"></div>
 		<ul class="results"></ul>
@@ -28,6 +28,7 @@
     reset() {
         this.times = [ 0, 0, 0 ];
     }
+		
     
     start() {
         if (!this.time) this.time = performance.now();
@@ -50,12 +51,8 @@
     }
 
     restart() {
-        if (!this.time) this.time = performance.now();
-        if (!this.running) {
-            this.running = true;
-            requestAnimationFrame(this.step.bind(this));
-        }
         this.reset();
+	requestAnimationFrame(this.step.bind(this));
     }
     
     clear() {
