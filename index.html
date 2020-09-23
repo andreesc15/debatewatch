@@ -21,6 +21,9 @@
 <script>
 	
 	var notification = new Audio("https://themushroomkingdom.net/sounds/wav/smw/smw_coin.wav");
+	var flag1 = true;
+	var flag6 = true;
+	var flag7 = true;
 	
 	class Stopwatch {
     constructor(display, results) {
@@ -77,9 +80,6 @@
             this.times[1] -= 60;
         }
 	 
-	    var flag1 = true;
-	    var flag6 = true;
-	    var flag7 = true;
 	if(this.times[0] == 1) {
 		document.body.style.backgroundColor = "#0A5807";
 		if(flag1) {
