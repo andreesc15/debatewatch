@@ -90,11 +90,6 @@ function pad0(value, count) {
     return result;
 }
 
-function clearChildren(node) {
-    while (node.lastChild)
-        node.removeChild(node.lastChild);
-}
-
 let stopwatch = new Stopwatch(
     document.querySelector('.stopwatch'),
     document.querySelector('.results'));
