@@ -8,10 +8,8 @@
 
 <nav class="controls">
 			<a href="#" class="button" onClick="stopwatch.start();">Start</a>
-			<a href="#" class="button" onClick="stopwatch.lap();">Lap</a>
 			<a href="#" class="button" onClick="stopwatch.stop();">Stop</a>
 			<a href="#" class="button" onClick="stopwatch.restart();">Restart</a>
-			<a href="#" class="button" onClick="stopwatch.clear();">Clear Laps</a>
 		</nav>
 		<div class="stopwatch"></div>
 		<ul class="results"></ul>
