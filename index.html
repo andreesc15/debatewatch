@@ -25,6 +25,7 @@
 	var flag1 = true;
 	var flag6 = true;
 	var flag7 = true;
+	var flag720 = true;
 	
 	class Stopwatch {
     constructor(display, results) {
@@ -100,6 +101,11 @@
 		if(flag7) {
 		notification2.play();
 		flag7 = false;
+		
+		if(this.times[1] >=20 && flag720){
+			notification2.play();
+			flag720 = false;
+			}
 		}
 	}
     }
@@ -123,8 +129,7 @@ function pad0(value, count) {
 }
 
 let stopwatch = new Stopwatch(
-    document.querySelector('.stopwatch'),
-    document.querySelector('.results'));
+    document.querySelector('.stopwatch');
 	</script>
 </body>
 </html>
