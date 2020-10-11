@@ -12,7 +12,6 @@ body,html{
   justify-content: center;
   align-items: center;
   background-color: #333333;
-  background-image: url('http://www.ramonhitzeroth.com/Codepen/table-bg.jpg');
   
   .coin-container{
     width: 150px;
