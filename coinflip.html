@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Coin Flip </title>
+<link rel="stylesheet" href="coin.css">
+</head>
+
+<body>
+<script>
+let flipping = false;
+
+$('.coin-inside').click(() => {
+  let val = Math.ceil((Math.random() * 100));
+  
+  if(!flipping){
+    flipping = true;
+    let totalFlips = Math.ceil((Math.random() * 2));  
+    
+    TweenMax.to(
+      $('.coin-inside'),
+      2,
+      {
+        ease: SlowMo.ease.config(0.3, 0.9, false), 
+        rotationY: '+='+(180*(10+totalFlips)),
+        scale: 1.7,
+        onComplete: () => {        
+         TweenMax.to(
+          $('.coin-inside'),
+          2,
+          {
+            ease: Power2.easeOut, 
+            rotationY: '+='+(180*(10)),
+            scale: 1,
+            onComplete: () => {
+              flipping = false;
+            }
+          }         
+        )}
+      }
+    );
+    
+  }
+  
+});
+</script>
+
+<div class="wrapper">
+  <div class="coin-container">
+    <div class="coin-inside">
+      <div class="coin heads">
+        <img src="http://www.ramonhitzeroth.com/Codepen/heads-png.png" alt="">
+      </div>
+      <div class="coin tails">
+        <img src="http://www.ramonhitzeroth.com/Codepen/tails-png.png" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
