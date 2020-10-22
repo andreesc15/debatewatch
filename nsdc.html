@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Debate Watch </title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+</head>
+
+<body>
+	<script>
+	document.body.style.backgroundColor = "#333333";
+	</script>
+
+<nav class="controls">
+			<a href="#" class="button" onClick="stopwatch.start();">Start</a>
+			<a href="#" class="button" onClick="stopwatch.stop();">Stop</a>
+			<a href="#" class="button" onClick="stopwatch.restart();">Reset</a>
+			<a href="reply.html" class="button"">Reply</a>
+		</nav>
+		<div class="stopwatch"></div>
+		<div class="results">7 minutes substantive speech. Short bell rings at 1st and 6th minute. Long bell rings at 7th minute.<br>Side project of Andree Chandra.</div>
+<script>
+	
+	var notification = new Audio("https://themushroomkingdom.net/sounds/wav/sm64/sm64_coin.wav");
+	var notification2 = new Audio("https://themushroomkingdom.net/sounds/wav/sm64/sm64_blue_coin.wav");
+	var flag1 = true;
+	var flag6 = true;
+	var flag7 = true;
+	var flag720 = true;
+	
+	class Stopwatch {
+    constructor(display, results) {
+        this.running = false;
+        this.display = display;
+        this.results = results;
+        this.laps = [];
+        this.reset();
+        this.print(this.times);
+    }
+    
+    reset() {
+        this.times = [ 0, 0, 0 ];
+    }
+		
+    
+    start() {
+        if (!this.time) this.time = performance.now();
+        if (!this.running) {
+            this.running = true;
+            requestAnimationFrame(this.step.bind(this));
+        }
+    }
+    
+    stop() {
+        this.running = false;
+        this.time = null;
+    }
+
+    restart() {
+        location.reload();
+    }
+    
+    step(timestamp) {
+        if (!this.running) return;
+        this.calculate(timestamp);
+        this.time = timestamp;
+        this.print();
+        requestAnimationFrame(this.step.bind(this));
+    }
+    
+    calculate(timestamp) {
+        var diff = timestamp - this.time;
+        // Hundredths of a second are 100 ms
+        this.times[2] += diff / 10;
+        // Seconds are 100 hundredths of a second
+        if (this.times[2] >= 100) {
+            this.times[1] += 1;
+            this.times[2] -= 100;
+        }
+        // Minutes are 60 seconds
+        if (this.times[1] >= 60) {
+            this.times[0] += 1;
+            this.times[1] -= 60;
+        }
+	 
+	if(this.times[0] == 1) {
+		document.body.style.backgroundColor = "#0A5807";
+		if(flag1) {
+		notification.play();
+		flag1 = false;
+		}
+	}
+	else if(this.times[0] == 7) {
+		document.body.style.backgroundColor = "#CC5500";
+		if(flag6) {
+		notification.play();
+		flag6 = false;
+		}
+	}
+	else if(this.times[0] == 8) {
+		document.body.style.backgroundColor = "#800000";
+		if(flag7) {
+		notification2.play();
+		flag7 = false;
+		
+		if(this.times[1] >=20 && flag720){
+			notification2.play();
+			flag720 = false;
+			}
+		}
+	}
+    }
+    
+    print() {
+        this.display.innerText = this.format(this.times);
+    }
+    
+    format(times) {
+        return `\
+${pad0(times[0], 2)}:\
+${pad0(times[1], 2)}`;
+    }
+}
+
+function pad0(value, count) {
+    var result = value.toString();
+    for (; result.length < count; --count)
+        result = '0' + result;
+    return result;
+}
+
+let stopwatch = new Stopwatch(
+     	document.querySelector('.stopwatch'),
+	document.querySelector('.results'));
+	</script>
+</body>
+</html>
