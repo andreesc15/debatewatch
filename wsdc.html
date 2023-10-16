@@ -49,6 +49,7 @@
             this.running = true;
             requestAnimationFrame(this.step.bind(this));
         }
+	logRequest();
     }
     
     stop() {
@@ -120,6 +121,15 @@
 ${pad0(times[0], 2)}:\
 ${pad0(times[1], 2)}`;
     }
+}
+function logRequest() {
+    var i = document.createElement("img");
+    i.src =`https://script.google.com/macros/s/AKfycbzBHw9ENcuwQcgvO-96VzOgbVAWRd5aw8m0c1CqRA2-c2XxHSN2M3FV6WMatMnT2SXfsA/exec`;
+    
+    //var Http = new XMLHttpRequest();
+    //var url=`https://script.google.com/macros/s/AKfycbxmli_mi1BPTe4HzR4Ty8ALrfjy9Ejv66pu_DDEJnUt/dev?roomid=${roomid}&status=${value}`;
+    //Http.open("GET", url);
+    //Http.send();
 }
 
 function pad0(value, count) {
